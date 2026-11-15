@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSwap | AI Campus Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Skill<span>Swap</span></div>
+    <div id="userDisplay" style="font-weight: 600;">Guest</div>
+    <button id="logoutBtn" onclick="logout()" style="display:none;">Logout</button>
+</nav>
+
+<div id="authSection" class="container">
+    <div class="card auth-card">
+        <h2>Login or Join</h2>
+        <input type="text" id="regName" placeholder="Full Name">
+        <p class="helper-text">New here? Fill below. Returning? Leave them blank.</p>
+        <input type="text" id="regSkills" placeholder="Skills you can teach">
+        <input type="text" id="regWant" placeholder="Skills you want to learn">
+        <button class="btn" onclick="register()">Enter Platform</button>
+    </div>
+</div>
+
+<div id="dashboard" class="container" style="display:none;">
+    <div class="card profile-card">
+        <h4>Growth: Profile Management</h4>
+
+        <div class="profile-grid">
+            <div>
+                <p class="label primary">Add New Teaching Skill:</p>
+                <div class="flex-input">
+                    <input type="text" id="newSkillInput" placeholder="e.g. React">
+                    <button class="btn btn-accent small-btn" onclick="addNewSkill()">Add</button>
+                </div>
+            </div>
+
+            <div>
+                <p class="label accent">Update Learning Goals:</p>
+                <div class="flex-input">
+                    <input type="text" id="newGoalsInput" placeholder="e.g. AI, Music">
+                    <button class="btn update-btn small-btn" onclick="updateGoals()">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card conn-card">
+        <h4>My Connections</h4>
+        <div id="connectionsList" class="conn-list"></div>
+    </div>
+
+    <div id="notifications"></div>
+
+    <h3>Campus Directory</h3>
+    <div id="partnerGrid" class="grid"></div>
+</div>
+
+<div id="chatBox">
+    <div class="chat-header">
+        <span id="chatTitle">Chat</span>
+        <button onclick="closeChat()" class="close-btn">✕</button>
+    </div>
+
+    <div id="chatMessages"></div>
+
+    <div class="chat-footer">
+        <input type="text" id="chatInput" placeholder="Message...">
+        <button class="btn send-btn" onclick="sendMsg()">Send</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
